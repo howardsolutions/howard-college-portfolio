@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Howard Phung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .resume {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 2rem;
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .resume-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-header p {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .resume-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Howard Phung</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resume.html" class="active">Resume</a>
+            <a href="html-cheatsheet.html">HTML Cheat Sheet</a>
+            <a href="css-cheatsheet.html">CSS Cheat Sheet</a>
+            <a href="javascript-cheatsheet.html">JS Cheat Sheet</a>
+            <a href="hobby.html">Hobby</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="resume">
+        <div class="resume-header">
+            <h1>Howard Phung</h1>
+            <p>Full Stack Developer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>howard.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(123) 456-7890</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Vancouver, Canada</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="resume-section">
+            <h2>Professional Summary</h2>
+            <p>Experienced Full Stack Developer with a strong background in building modern web applications. Proficient in React, Node.js, and TypeScript. Passionate about creating efficient, scalable, and user-friendly solutions. Strong problem-solving skills and a commitment to writing clean, maintainable code.</p>
+        </section>
+
+        <section class="resume-section">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Senior Full Stack Developer</h3>
+                    <p class="company">Tech Solutions Inc.</p>
+                    <p class="date">2020 - Present</p>
+                    <ul>
+                        <li>Led development of Next.js applications with TypeScript and Tailwind CSS</li>
+                        <li>Implemented responsive designs and optimized performance</li>
+                        <li>Mentored junior developers and conducted code reviews</li>
+                        <li>Collaborated with cross-functional teams in agile environment</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Web Developer</h3>
+                    <p class="company">Digital Creations</p>
+                    <p class="date">2018 - 2020</p>
+                    <ul>
+                        <li>Developed and maintained React-based web applications</li>
+                        <li>Created responsive designs and implemented SEO best practices</li>
+                        <li>Worked with clients to understand and implement requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p class="company">University of Technology</p>
+                    <p class="date">2014 - 2018</p>
+                    <p>Specialized in Software Engineering and Web Development</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Projects</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Portfolio Website</h3>
+                    <p>Modern portfolio built with Next.js, TypeScript, and Tailwind CSS</p>
+                    <ul>
+                        <li>Implemented responsive design and animations</li>
+                        <li>Created reusable components</li>
+                        <li>Optimized for performance and SEO</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>E-commerce Platform</h3>
+                    <p>Full-stack e-commerce solution</p>
+                    <ul>
+                        <li>Developed frontend with React and Redux</li>
+                        <li>Built RESTful API with Node.js and Express</li>
+                        <li>Implemented secure payment processing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Howard Phung. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/howardsolutions" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/howardphung" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/howardphung" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

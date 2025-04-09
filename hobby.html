@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Howard Phung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hobby {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 2rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .photo-card:hover .photo-info {
+            transform: translateY(0);
+        }
+
+        .photo-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: var(--light-bg);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .photo-stats {
+            color: white;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Howard Phung</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="html-cheatsheet.html">HTML Cheat Sheet</a>
+            <a href="css-cheatsheet.html">CSS Cheat Sheet</a>
+            <a href="javascript-cheatsheet.html">JS Cheat Sheet</a>
+            <a href="hobby.html" class="active">Hobby</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="hobby">
+        <h1>Technical Blog</h1>
+        <p>Sharing knowledge about web development, system design, and software engineering.</p>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nodejs">Node.js</button>
+            <button class="filter-btn" data-filter="react">React</button>
+            <button class="filter-btn" data-filter="system">System Design</button>
+        </div>
+
+        <div class="gallery">
+            <div class="photo-card" data-category="nodejs">
+                <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1727255157732/25e92b03-63fa-4de9-96f6-1ba7a558559e.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="Understanding Buffer">
+                <div class="photo-info">
+                    <h3 class="photo-title">Understanding Buffer - Node.js Distilled</h3>
+                    <p class="photo-description">Why Buffers are Important? Our computer can only understand 0s and 1s. Buffers connect our server technology...</p>
+                </div>
+            </div>
+            <div class="photo-card" data-category="system">
+                <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1737592313518/815e1a44-9e95-4fbd-a512-716270db865c.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="Computer Architecture">
+                <div class="photo-info">
+                    <h3 class="photo-title">Computer Architecture</h3>
+                    <p class="photo-description">Components of Computer: Disk, Memory, CPU, and how they work together in modern computing systems...</p>
+                </div>
+            </div>
+            <div class="photo-card" data-category="nodejs">
+                <img src="https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/PKEPAeMBOIU/upload/12010d20535d39194ce6f5f8bacca8cc.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="Understanding Event Emitter">
+                <div class="photo-info">
+                    <h3 class="photo-title">Understanding Event Emitter - Nodejs Distilled</h3>
+                    <p class="photo-description">Understand and build our own Event Emitter. Using Event Emitter in our code to have a better understanding...</p>
+                </div>
+            </div>
+            <div class="photo-card" data-category="nodejs">
+                <img src="https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/FIKD9t5_5zQ/upload/c4ed9a4bda79b3429d181a46c9b869a2.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="Understanding Node Internals">
+                <div class="photo-info">
+                    <h3 class="photo-title">Understanding Node Internals [Notes]</h3>
+                    <p class="photo-description">V8 engine, libuv, basic of threads. NodeJS internally has a collection of dependencies to execute your code...</p>
+                </div>
+            </div>
+            <div class="photo-card" data-category="system">
+                <img src="https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/ObpCE_X3j6U/upload/01336026a86e8c3cefdbf785ebc0565a.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="Microservices Fundamental">
+                <div class="photo-info">
+                    <h3 class="photo-title">Microservices Fundamental</h3>
+                    <p class="photo-description">What is a Microservice? Understanding the architecture and benefits of microservices in modern applications...</p>
+                </div>
+            </div>
+            <div class="photo-card" data-category="react">
+                <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1728099125902/81acb28d-bfca-4b01-99bc-e5a153b1c8d3.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="React Suspense">
+                <div class="photo-info">
+                    <h3 class="photo-title">React Suspense</h3>
+                    <p class="photo-description">What is React Suspense? A built-in React component that we can use to catch/isolate components that are not ready...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <img src="" alt="Blog Post">
+                <div class="photo-stats">
+                    <h3 class="modal-title"></h3>
+                    <p class="modal-description"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Howard Phung. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/howardsolutions" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/howardphung" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/howardphung" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const photoCards = document.querySelectorAll('.photo-card');
+            const modal = document.querySelector('.modal');
+            const modalImg = modal.querySelector('img');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalDescription = modal.querySelector('.modal-description');
+            const closeModal = modal.querySelector('.close-modal');
+
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Filter photos
+                    photoCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Modal functionality
+            photoCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const img = card.querySelector('img');
+                    const title = card.querySelector('.photo-title').textContent;
+                    const description = card.querySelector('.photo-description').textContent;
+
+                    modalImg.src = img.src;
+                    modalTitle.textContent = title;
+                    modalDescription.textContent = description;
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 

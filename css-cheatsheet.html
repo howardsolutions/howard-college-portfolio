@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Howard Phung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cheat-sheet {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 2rem;
+        }
+
+        .cheat-sheet h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cheat-sheet-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tip {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .property-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .property-item {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .property-name {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .property-description {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .property-values {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">My Portfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="html-cheatsheet.html">HTML Cheat Sheet</a>
+            <a href="css-cheatsheet.html" class="active">CSS Cheat Sheet</a>
+            <a href="javascript-cheatsheet.html">JS Cheat Sheet</a>
+            <a href="hobby.html">Hobby</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <main class="cheat-sheet">
+        <h1>CSS Cheat Sheet</h1>
+        
+        <section class="cheat-sheet-section">
+            <h2>Basic Syntax</h2>
+            <div class="code-block">
+                <pre>selector {
+    property: value;
+    /* Multiple properties */
+    property1: value1;
+    property2: value2;
+}
+
+/* Class selector */
+.class-name {
+    /* styles */
+}
+
+/* ID selector */
+#id-name {
+    /* styles */
+}
+
+/* Element selector */
+element {
+    /* styles */
+}</pre>
+            </div>
+            <div class="tip">
+                <strong>Tip:</strong> Use meaningful class names that describe the purpose of the element.
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Box Model</h2>
+            <div class="property-list">
+                <div class="property-item">
+                    <span class="property-name">margin</span>
+                    <p class="property-description">Space outside the element's border</p>
+                    <p class="property-values">Values: length | auto | inherit</p>
+                </div>
+                <div class="property-item">
+                    <span class="property-name">padding</span>
+                    <p class="property-description">Space between content and border</p>
+                    <p class="property-values">Values: length | inherit</p>
+                </div>
+                <div class="property-item">
+                    <span class="property-name">border</span>
+                    <p class="property-description">Element's border</p>
+                    <p class="property-values">Values: width style color</p>
+                </div>
+                <div class="property-item">
+                    <span class="property-name">box-sizing</span>
+                    <p class="property-description">How element's width and height are calculated</p>
+                    <p class="property-values">Values: content-box | border-box</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Flexbox</h2>
+            <div class="code-block">
+                <pre>.container {
+    display: flex;
+    flex-direction: row | column;
+    justify-content: flex-start | flex-end | center | space-between | space-around;
+    align-items: flex-start | flex-end | center | stretch | baseline;
+    flex-wrap: nowrap | wrap | wrap-reverse;
+}
+
+.item {
+    flex: 1;
+    order: 0;
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}</pre>
+            </div>
+            <div class="note">
+                <strong>Note:</strong> Flexbox is great for one-dimensional layouts.
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Grid</h2>
+            <div class="code-block">
+                <pre>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    grid-template-areas:
+        "header header header"
+        "main main sidebar"
+        "footer footer footer";
+}
+
+.item {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    grid-area: header;
+}</pre>
+            </div>
+            <div class="tip">
+                <strong>Tip:</strong> Grid is perfect for two-dimensional layouts.
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Typography</h2>
+            <div class="property-list">
+                <div class="property-item">
+                    <span class="property-name">font-family</span>
+                    <p class="property-description">Font family for text</p>
+                    <p class="property-values">Values: font-name | generic-family</p>
+                </div>
+                <div class="property-item">
+                    <span class="property-name">font-size</span>
+                    <p class="property-description">Size of the font</p>
+                    <p class="property-values">Values: length | percentage | inherit</p>
+                </div>
+                <div class="property-item">
+                    <span class="property-name">font-weight</span>
+                    <p class="property-description">Thickness of the font</p>
+                    <p class="property-values">Values: normal | bold | 100-900</p>
+                </div>
+                <div class="property-item">
+                    <span class="property-name">line-height</span>
+                    <p class="property-description">Height of a line of text</p>
+                    <p class="property-values">Values: number | length | percentage</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Colors and Backgrounds</h2>
+            <div class="code-block">
+                <pre>/* Color values */
+color: #FF0000;        /* Hex */
+color: rgb(255, 0, 0); /* RGB */
+color: rgba(255, 0, 0, 0.5); /* RGBA with opacity */
+color: hsl(0, 100%, 50%); /* HSL */
+color: hsla(0, 100%, 50%, 0.5); /* HSLA with opacity */
+
+/* Background properties */
+background-color: #fff;
+background-image: url('image.jpg');
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;</pre>
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Transitions and Animations</h2>
+            <div class="code-block">
+                <pre>/* Transition */
+.element {
+    transition: property duration timing-function delay;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.element {
+    animation: slideIn 0.5s ease-out;
+}</pre>
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Responsive Design</h2>
+            <div class="code-block">
+                <pre>/* Media Queries */
+@media screen and (max-width: 768px) {
+    .element {
+        /* Mobile styles */
+    }
+}
+
+/* Viewport Units */
+.element {
+    width: 100vw;  /* Viewport width */
+    height: 100vh; /* Viewport height */
+}
+
+/* Fluid Typography */
+html {
+    font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
+}</pre>
+            </div>
+            <div class="warning">
+                <strong>Warning:</strong> Always test responsive designs on multiple devices.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

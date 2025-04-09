@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Howard Phung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cheat-sheet {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 2rem;
+        }
+
+        .cheat-sheet h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cheat-sheet-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tip {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tag-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tag-item {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .tag-name {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .tag-description {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">My Portfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="html-cheatsheet.html" class="active">HTML Cheat Sheet</a>
+            <a href="css-cheatsheet.html">CSS Cheat Sheet</a>
+            <a href="javascript-cheatsheet.html">JS Cheat Sheet</a>
+            <a href="hobby.html">Hobby</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="cheat-sheet">
+        <h1>HTML Cheat Sheet</h1>
+        
+        <section class="cheat-sheet-section">
+            <h2>Basic Structure</h2>
+            <div class="code-block">
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+            <div class="tip">
+                <strong>Tip:</strong> Always include the viewport meta tag for responsive design.
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Common HTML Tags</h2>
+            <div class="tag-list">
+                <div class="tag-item">
+                    <span class="tag-name">&lt;div&gt;</span>
+                    <p class="tag-description">Block-level container for grouping elements</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;span&gt;</span>
+                    <p class="tag-description">Inline container for text</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;p&gt;</span>
+                    <p class="tag-description">Paragraph text</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;h1&gt; to &lt;h6&gt;</span>
+                    <p class="tag-description">Heading levels 1-6</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;a&gt;</span>
+                    <p class="tag-description">Hyperlink to another page or resource</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;img&gt;</span>
+                    <p class="tag-description">Image element (self-closing)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Forms and Input</h2>
+            <div class="code-block">
+                <pre>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre>
+            </div>
+            <div class="note">
+                <strong>Note:</strong> Always include labels for form inputs for accessibility.
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Lists</h2>
+            <div class="code-block">
+                <pre>&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Description List --&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Term 1&lt;/dt&gt;
+    &lt;dd&gt;Description 1&lt;/dd&gt;
+    &lt;dt&gt;Term 2&lt;/dt&gt;
+    &lt;dd&gt;Description 2&lt;/dd&gt;
+&lt;/dl&gt;</pre>
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Semantic HTML</h2>
+            <div class="tag-list">
+                <div class="tag-item">
+                    <span class="tag-name">&lt;header&gt;</span>
+                    <p class="tag-description">Introductory content or navigation</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;nav&gt;</span>
+                    <p class="tag-description">Navigation links</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;main&gt;</span>
+                    <p class="tag-description">Main content of the document</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;section&gt;</span>
+                    <p class="tag-description">Thematic grouping of content</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;article&gt;</span>
+                    <p class="tag-description">Independent, self-contained content</p>
+                </div>
+                <div class="tag-item">
+                    <span class="tag-name">&lt;footer&gt;</span>
+                    <p class="tag-description">Footer content</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Tables</h2>
+            <div class="code-block">
+                <pre>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Header 1&lt;/th&gt;
+            &lt;th&gt;Header 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Data 1&lt;/td&gt;
+            &lt;td&gt;Data 2&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+            </div>
+            <div class="warning">
+                <strong>Warning:</strong> Use tables only for tabular data, not for layout.
+            </div>
+        </section>
+
+        <section class="cheat-sheet-section">
+            <h2>Media Elements</h2>
+            <div class="code-block">
+                <pre>&lt;!-- Audio --&gt;
+&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;!-- Video --&gt;
+&lt;video controls width="320" height="240"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    Your browser does not support the video element.
+&lt;/video&gt;</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
